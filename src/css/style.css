@@ -24,6 +24,7 @@ body {
 
 .calculator {
   width: 60vw;
+  max-width: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,10 +52,27 @@ body {
   word-break: break-all;
   padding-right: 10px;
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .calculator .calculatorContainer .screen .currentNumber {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
+  height: 22px;
+}
+.calculator .calculatorContainer .screen .previuosNumber {
+  display: inline-block;
+  min-height: 22px;
+  font-size: 18px;
+  background-color: #fff;
 }
 .calculator .calculatorContainer .buttonContainer {
   width: 100%;

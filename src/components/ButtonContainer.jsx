@@ -5,12 +5,13 @@ class ButtonContainer extends Component {
   
 
   render() { 
-    const buttons = this.props.buttons.map((button, index) => 
-      <Button name={button.name} btnType={button.type} key={index} specyfiType={button.specyfiType}/>
-    )
+   
     return ( 
+      
      <div className='buttonContainer'>
-      {buttons}
+      {this.props.buttons.map((button, index) => 
+      <Button name={button.name} btnType={button.type} key={index} specyfiType={this.props.specyfiType}/>
+    )}
      </div>
      );
   }

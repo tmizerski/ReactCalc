@@ -15,6 +15,7 @@ body {
 }
   .calculator {
     width: 60vw;
+    max-width: 400px;
     display: flex;
   .calculatorContainer {
     width: 40vw;
@@ -32,9 +33,19 @@ body {
       word-break: break-all;
       padding-right: 10px;
       margin-bottom: 10px;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
       .currentNumber {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: bold;
+        height: 22px;
+      }
+      .previuosNumber {
+        display: inline-block;
+        min-height: 22px;
+        font-size: 18px;
+        background-color: #fff;
       }
     }
     

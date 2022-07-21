@@ -1,20 +1,24 @@
 import { React, Component} from 'react';
 
 class Button extends Component {
-  // constructor() {
-  //   super();
-  //   this.specyfiType = ;
-  // }
+  state = {
+    name: this.props.name,
+    value: this.props.name,
+    type: this.props.btnType
+  }
+
 
   handleSpecyfiType = (e) => {
     e.preventDefault();
-    this.props.specyfiType(this.props.btnType, this.props.name);
-    console.log(this.props.specyfiType)
+    this.props.specyfiType(this.state.type, this.state.name);
+    // console.log(this.props.specyfiType);
+    // console.log(this.state.name);
+    // console.log(this.state.type);
   }
 
   render() { 
     return ( 
-      <button data-type={this.props.btnType} className={this.props.btnType} onClick={this.handleSpecyfiType}>{this.props.name}</button>
+      <button data-type={this.state.type} className={this.state.type} onClick={(e)=>this.handleSpecyfiType(e)}>{this.state.name}</button>
      );
   }
 }
