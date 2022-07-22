@@ -15,7 +15,7 @@ body {
 }
   .calculator {
     width: 60vw;
-    max-width: 400px;
+    max-width: 430px;
     display: flex;
   .calculatorContainer {
     width: 40vw;
@@ -76,8 +76,9 @@ body {
         font-weight: bold;
       }
   .calcHistory {
-      width: 10vw;
+      width: 15vw;
       min-width: 100px;
+      max-height: 400px;
       font-size: 14;
       font-weight: bold;
       display: flex;
@@ -87,6 +88,8 @@ body {
       background: rgba(0,0,0,0.23);
       border-radius: 20px;
       padding: 10px;
+      // overflow: scroll;
+      
       button {
         padding: 3px 3px;
         margin: 5px;
