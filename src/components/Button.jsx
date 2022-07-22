@@ -11,9 +11,6 @@ class Button extends Component {
   handleSpecyfiType = (e) => {
     e.preventDefault();
     this.props.specyfiType(this.state.type, this.state.name);
-    // console.log(this.props.specyfiType);
-    // console.log(this.state.name);
-    // console.log(this.state.type);
   }
 
   render() { 

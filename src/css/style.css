@@ -24,7 +24,7 @@ body {
 
 .calculator {
   width: 60vw;
-  max-width: 400px;
+  max-width: 430px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,8 +99,9 @@ body {
   font-weight: bold;
 }
 .calculator .calcHistory {
-  width: 10vw;
+  width: 15vw;
   min-width: 100px;
+  max-height: 400px;
   font-size: 14;
   font-weight: bold;
   display: -webkit-box;

@@ -3,6 +3,8 @@ import Screen from './Screen';
 import ButtonContainer from './ButtonContainer';
 import CalcHistory from './CalcHistory';
 
+const history = [];
+
 class CalculatorContainer extends Component {
   constructor() {
     super();
@@ -17,7 +19,7 @@ class CalculatorContainer extends Component {
         type: 'clear',
       },
       {
-        name: '^2',
+        name: 'x^',
         type: 'operator'
       },
       {
@@ -89,9 +91,10 @@ class CalculatorContainer extends Component {
         type: 'number'
       }
     ],
-    history: []
+    history
   }
    }
+
 
    displayNumber = (value) => {
     if(value === '.' && this.state.currentNumber === '') {
@@ -127,13 +130,6 @@ class CalculatorContainer extends Component {
     }
 }
 
-addToHistory = () => {
-        this.setState(prevState =>({
-            history: [...prevState.history, (`<li>${this.state.previousNumber} ${this.state.mathSign} ${this.state.currentNumber} = ${this.state.result} </li>`)]
-        }))
-        console.log(this.state.history);
-    }
-
     showResult = () => {
         let operator = this.state.mathSign;
         let a = Number(this.state.previousNumber);
@@ -146,12 +142,12 @@ addToHistory = () => {
         currentNumber: result});
          break;
          case operator = '-':
-            result = a - b 
+            result = a - b;
             this.setState({ result: result,
             currentNumber: result});
          break;
          case operator = 'X': 
-         result = a * b
+         result = a * b;
          this.setState({ result: result,
         currentNumber: result});
          break;
@@ -160,18 +156,20 @@ addToHistory = () => {
          this.setState({ result: result,
         currentNumber: result});
          break;
-         case operator = '2^': 
+         case operator = 'x^': 
          result = a ** b;
          this.setState({ result: result,
         currentNumber: result});
          break;
          default: return;
         }
-        this.setState({
+        this.setState(prevState => ({
             previousNumber: '',
             mathSign: '',
+            history: [...prevState.history, `${a} ${operator} ${b} = ${result}`]
         })
-        this.addToHistory();
+        )
+        this.state.history ? document.querySelector('.historyBtn').classList.add('active') : document.querySelector('.historyBtn').classList.add('active')
 
     }
 
@@ -197,6 +195,13 @@ addToHistory = () => {
     default: return;
     }
     }
+ 
+ clearHistory = () => {
+  this.setState({
+    history: history
+  })
+  document.querySelector('.historyBtn').classList.remove('active');
+ }
     
   
   render() {
@@ -207,7 +212,7 @@ addToHistory = () => {
         <Screen currentNumber={this.state.currentNumber} mathSign={this.state.mathSign} previousNumber={this.state.previousNumber}/>
         <ButtonContainer buttons={this.state.buttons} specyfiType={this.handleType}/>
       </div>
-      <CalcHistory/>
+      <CalcHistory history={this.state.history} clearHistory={this.clearHistory}/>
       </div>
      );
   }
